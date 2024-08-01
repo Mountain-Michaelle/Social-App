@@ -1,0 +1,23 @@
+nav{
+    display: flex;
+    padding: 20px;
+
+    .nav-left{
+        flex: 2;
+
+    }
+
+    .nav-right{
+        flex: 3;
+        display: flex;
+        justify-content: flex-start;
+        gap: 15%;
+
+
+        .nav-item{
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}
