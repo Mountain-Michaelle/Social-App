@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} account register {% endblock %}
+
+{% block content %}
+<div class='register'>
+    <h2> Create an account </h2>
+    <div class='card'>
+        {% if user_form.errors %}
+            <div class='error'>
+                    {{user_form.errors.password2}}
+                    {{user_form.errors.password}}
+                    {{user_form.errors.username}}
+            </div>
+        {% endif %}
+
+        <form method='post'>
+            {{ user_form.as_div}}
+            {% csrf_token %}
+            
+        <div class='error'>
+            {{user_form.errors.password2}}
+        </div>
+        <div class='bttn'>
+            <button type='submit'>REGISTER </button>
+        </div>
+
+
+        <p>Already have an account?<a href="{% url 'login' %}">Log in here </a> </p>
+        
+        </form>
+
+       
+    </div>  
+</div>
+{% endblock %}

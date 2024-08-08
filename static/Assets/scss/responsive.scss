@@ -1,0 +1,23 @@
+@mixin large {
+    @media screen and (max-width: 1366px){
+    @content;  
+    }
+}
+
+@mixin medium {
+    @media screen and (max-width: 900px){
+      @content;  
+    }
+   }
+
+@mixin small {
+    @media screen and (max-width: 550px){
+       @content;  
+    }
+}
+
+@mixin nav-cut {
+    @media screen and (max-width: 900px){
+       @content;  
+    }
+}

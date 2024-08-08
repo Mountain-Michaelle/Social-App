@@ -1,14 +1,31 @@
 
-<nav>
+<nav class='navigation'>
     <div class="nav-left">
         <h2>De Bees Social</h2>
-    </div>
+    </div> 
 
     <div class="nav-right">
-        <span class="nav-item">Dashboard</span>
+        <span {% if section == 'dashboard' %} class="selected" {% endif %}>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <span {% if section == 'dashboard' %} class='underline' {% endif %}></span>
+        </span>
+
         <span class="nav-item">Photos</span>
+
         <span class="nav-item">Bookmarks</span>
-        <span class="nav-item">Logout</span>
+
+
+        <span {% if section == 'profile' %} class="selected" {% endif %}>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' request.user.id %}" > Profile </a>
+                <span {% if section == 'profile' %} class='underline' {% endif %}></span>
+            {% else %}
+                <span>
+                    <a href="{% url 'logout' %}" > Login/Register </a>
+                </span>
+            {% endif %}
+        </span>
+
     </div>
 
 </nav>

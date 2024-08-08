@@ -1,4 +1,4 @@
-{% load account_templatetag %}
+{% comment %} {% load account_templatetag %} {% endcomment %}
 {% load static %}
 {% load sass_tags %}
 {% load compress %}
@@ -11,19 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% sass_src 'Assets/scss/Navbar.scss' %}" />
     <link rel='stylesheet' href="{% sass_src 'Assets/scss/loginForm.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/dashboard.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/resetion.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/register.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/edit.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/profile.scss' %}" />
 
     <title> Social Web {% block title %}==>{% endblock %}</title>
 
 </head>
 <body>
-   {% show_navbar %}
+   {% include "partials/Navbar.html" %}
+
+   {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="#" class='close'> X </a>
+                </li>
+            {% endfor %}
+        </ul>
+   {% endif %}
 
 {% block content %}
-
-
 {% endblock %}
-
-
 
 </body>
 
@@ -31,6 +43,21 @@
     *{
         margin: 0;
         padding: 0;
+    }
+
+    .messages{
+        height: 50px;
+        display: flex;
+    }
+
+    .success{
+        background: green;
+        width: 100%;
+        color: white;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-around:
+        align-items: center;
     }
 </style>
 </html>
