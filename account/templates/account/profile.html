@@ -7,11 +7,8 @@
 <div class='profile'>
     <div class='hd'>
         <h2>Welcome {{request.user.username}}</h2>
-        
         <div class='profile-list'>
-            
                 <ul>
-    
                     {% for profile in profiles %}
 
                     <li>
@@ -21,33 +18,25 @@
                     <li>
                         Email: <strong> {{profile.email}} </strong>
                      </li>
-                     
                      <li>
                         
                      </li>
-
+                     
                     {% endfor %} 
-                    
                     {% for user in users %}
                     <li>
                     Date of Birth: <strong>{{ user.date_of_birth }}</strong>
                     </li>
-                    
                     <span class='photo'> {% if user.photo %} <img src={{user.photo.url}} />  {% else %} {{request.user.username }} {% endif %} </span>
-
                     {% endfor %}
                 </ul>
-            
+                <div class='edit-profile'>
+                    <button> <a href="{% url 'edit' %}"> Edit Your Profile </a> </button> 
 
-            <div class='edit-profile'>
-                <button> <a href="{% url 'edit' %}"> Edit Your Profile </a> </button> 
-
-                <button class='logout'> <a href="{% url 'logout' %}"> Log Out </a> </button> 
-            </div>
+                    <button class='logout'> <a href="{% url 'logout' %}"> Log Out </a> </button> 
+                </div>
         </div>
     </div>
-
-
 </div>
 
 {% endblock content %}

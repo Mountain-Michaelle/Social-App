@@ -34,7 +34,7 @@ def register(request):
     return render(request, 'account/register.html', {'user_form': user_form})
 
 def profile(request, profile_id):
-    user = User.objects.get(profile=profile_id)
+    user = User.objects.get(id=profile_id)
     profile = Profile.objects.get(user=profile_id)
     #profile = Profile.objects.get(user=profile_id)
     
@@ -43,7 +43,7 @@ def profile(request, profile_id):
     
     
     
-    context = {'users': users, 'profiles': profiles}
+    context = {'users': users, 'profiles': profiles, 'section': 'profile'}
     return render(request, 'account/profile.html', context)
 
 @login_required

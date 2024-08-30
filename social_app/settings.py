@@ -25,14 +25,14 @@ SECRET_KEY = 'django-insecure-46dd&*i7w$a)np+w1-4@v0(lfa!#j-0y!s-lktb4580s&r0n!+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'bookmark.apps.BookmarkConfig',
+    'images.apps.ImagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,12 +42,15 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'sass_processor',
     'compressor',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,7 +64,7 @@ ROOT_URLCONF = 'social_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,16 +83,62 @@ WSGI_APPLICATION = 'social_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'social_app',
+        'USER': 'postgres',
+        'PASSWORD': '41240075',
     }
 }
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '2941809582661342'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'cea7bbfdd2045ae13e1baabbb9068907'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOME_VARIABLE = ''
+
+# SOCIAL_AUTH_Google_KEY = '600718779246-6r5kh35kmb5sk2018djusbpt1o8b8j40.apps.googleusercontent.com'
+# SOCIAL_AUTH_TWITTER_SECRET = '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'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '600718779246-6r5kh35kmb5sk2018djusbpt1o8b8j40.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_TWITTER_KEY = 'VpNIoUvAfS4tffXMteqzp21eY'
+SOCIAL_AUTH_TWITTER_SECRET = 'LBzMxCmt7vz3aZQDNLbtQyYr7UG5qZGlQTA5c8ud1Tcg49EmCF'
+
+
+SOCIAL_AUTH_PIPELINE = [
+'social_core.pipeline.social_auth.social_details',
+'social_core.pipeline.social_auth.social_uid',
+'social_core.pipeline.social_auth.auth_allowed',
+'social_core.pipeline.social_auth.social_user',
+'social_core.pipeline.user.get_username',
+'social_core.pipeline.user.create_user',
+'account.authentication.create_profile',
+'social_core.pipeline.social_auth.associate_user',
+'social_core.pipeline.social_auth.load_extra_data',
+'social_core.pipeline.user.user_details',
+]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -127,6 +176,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[BASE_DIR/'static']
 STATIC_ROOT = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = 'media/'

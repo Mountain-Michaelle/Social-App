@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %} login to your account {% endblock %}
 {% block content %}
 
@@ -9,7 +9,7 @@
 
         {% if form.errors %}
             <p class='form-error'>
-                Invalid username or password
+                Invalid e-mail or password
             </p>
         {% endif %}
         <form action="{% url 'login' %}" method="post" class=''>
@@ -27,6 +27,16 @@
                 Forgotten your password?
             </a>
         </p>
+
+        <span class='icon'>
+            <h2>Continue With </h2>
+            <i>
+                <a href="{% url "social:begin" "facebook" %}"> <img src="{% static './Assets/images/fbIcon.svg' %}" alt="Images" /> </a>
+                <a href="{% url "social:begin" "twitter" %}"> <img src="{% static './Assets/images/xIcon.svg' %}" alt="Images" /> </a>
+                <a href="{% url "social:begin" 'google-oauth2' %}"> <img src="{% static './Assets/images/gmail.svg' %}" alt="Images" /> </a>
+                
+            </i>
+        </span>
     </div>
 </div>
 {% endblock content %}

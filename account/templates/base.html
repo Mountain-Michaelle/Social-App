@@ -16,6 +16,7 @@
     <link rel='stylesheet' href="{% sass_src 'Assets/scss/register.scss' %}" />
     <link rel='stylesheet' href="{% sass_src 'Assets/scss/edit.scss' %}" />
     <link rel='stylesheet' href="{% sass_src 'Assets/scss/profile.scss' %}" />
+    <link rel='stylesheet' href="{% sass_src 'Assets/scss/create.scss' %}" />
 
     <title> Social Web {% block title %}==>{% endblock %}</title>
 
@@ -56,8 +57,20 @@
         color: white;
         font-weight: 600;
         display: flex;
-        justify-content: space-around:
+        justify-content: space-between;
         align-items: center;
+        padding: 0 1rem 0 1rem;
+    }
+
+    .error{
+        background: red;
+        width: 100%;
+        color: white;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem 0 1rem;
     }
 </style>
 </html>

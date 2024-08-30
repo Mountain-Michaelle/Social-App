@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} create image {% endblock%}
+
+
+{% block content %}
+    <div class='create'> 
+        <h2>Bookmark An Image </h2>
+
+        <div class='card'>
+            <img src="{{request.GET.url}}" alt="Bookmark image" />
+
+            <span class='cont'>
+                <form method="post">
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <button type="submit">Bookmark it! </button>
+                </form>
+            </span>
+        </div>
+    </div>
+
+{% endblock %}
