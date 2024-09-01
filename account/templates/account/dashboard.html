@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}your dashboard{% endblock %}
 {% block content %}
@@ -7,9 +8,22 @@
         <div class='hd'>
             <h2>Welcome to your dashboard </h2>
             <div class='dashboard-line'></div>
+
+            <div class='option'>
+                <span class="option-box"><img src="{% static './Assets/images/profile.svg' %}" /></span>
+                <span class="option-box"><img src="{% static './Assets/images/profile.svg' %}" /></span>
+                <span class="option-box"><img src="{% static './Assets/images/profile.svg' %}" /></span>
+            </div>
+
+            <div class='lnk'>
+                <p>
+                    Drag the following button to your bookmarks toolbar to bookmark images from other website
+
+                    <a href="javascript:{% include 'bookmarklet_launcher.js' %}">
+                        BOOKMARK IT
+                    </a>
+                </p>
+            </div>
         </div>
-
-
     </div>
-
 {% endblock %}

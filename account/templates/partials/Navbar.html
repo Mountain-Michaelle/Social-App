@@ -10,9 +10,12 @@
             <span {% if section == 'dashboard' %} class='underline' {% endif %}></span>
         </span>
 
-        <span class="nav-item">Photos</span>
+        <span {% if section == 'images' %} class="selected"{% endif %}>
+            <a href="{% url 'images:create' %}">Photos</a>
+            <span {% if section == 'images' %} class='underline' {% endif %}></span>
+        </span>
 
-        <span class="nav-item">Bookmarks</span>
+        <span class="nav-item">People</span>
 
 
         <span {% if section == 'profile' %} class="selected" {% endif %}>

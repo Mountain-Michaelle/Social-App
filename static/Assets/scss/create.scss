@@ -9,16 +9,20 @@
 
     &::-webkit-scrollbar{
         display: none;
-    }   
+    } 
 
-
+    h2{
+        color: #cb01cb;
+        font-size: 1.2rem;
+        padding: 20px;
+    }
 
     .card{
         display: flex;
         width: 90%;
         margin: 0 auto;
         box-shadow: -1px 3px 10px #140e10;
-        overflow: auto;
+        overflow:  auto;
 
         img{
             flex: 2;

@@ -1,5 +1,3 @@
-
-
 .dashboard{
     margin: 20px;
     padding-top: 2rem;
@@ -17,9 +15,45 @@
         background: #ffbeff;
         margin: 3rem 0rem 0rem 2rem;
         box-shadow: 4px 3px 4px 0.5px #3c797d;
-    }
-    }
-   
+    }}
 
+    .option{
+        display: flex;
+        gap: 1rem;
+        justify-content: space-around;
+        flex-flow: row wrap;
+        padding-top: 30px;
 
+        .option-box{
+            background: #ffffff;
+            box-shadow: -1px 2px 4px #526967;
+            padding: 7px;
+            
+            &:hover{
+                cursor: pointer;
+            }
+
+            img{
+                width: 40px;
+            }
+        }
+    }
+
+.lnk{
+        margin-top: 1rem;
+
+        p{
+            color: grey;
+            line-height: 1.7rem;
+            text-align: justify;
+
+            a{
+                padding: 7px;
+                margin: 1rem;
+                background:#4e6567;
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
 }
