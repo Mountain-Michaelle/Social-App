@@ -1,0 +1,39 @@
+.register { background-color: #00c4eb; background-image: url("../images//loginbg.jpg"); width: 100%; height: 120vh; color: white; display: flex; flex-direction: column; align-items: center; }
+
+.register h2 { padding: 20px; color: #ffe8c7; }
+
+.register .card { display: flex; flex-direction: column; margin-top: 3rem; width: 40%; min-width: 350px; height: 300px; background-color: #00c2e987; }
+
+.register .card .error { margin: 1rem; }
+
+.register .card .error .errorlist li { padding: 0; color: #fcff25 !important; font-weight: 550; list-style: none; }
+
+.register .card form { margin: 20px; display: flex; flex-direction: column; justify-content: center; }
+
+.register .card form .helptext { display: none !important; }
+
+.register .card form .error { margin: 1rem; }
+
+.register .card form .error .errorlist li { padding: 0; color: #fcff25 !important; font-weight: 550; list-style: none; }
+
+.register .card form div { display: flex; flex-direction: column; margin: 0 auto; width: 100%; }
+
+.register .card form div label { margin-left: 1.8rem; }
+
+.register .card form div input { padding: 10px; margin: 10px auto; width: 80%; outline: none; border: 1px solid aqua; }
+
+.register .card form .errorlist { display: none !important; }
+
+.register .card form .bttn { display: flex; align-items: right; margin: 0 auto; }
+
+.register .card form .bttn button { margin-left: 1.8rem; width: 100px; padding: 10px; background: white; border: none; font-weight: 800; color: #301402; }
+
+.register .card form p { color: white; margin-left: 1.8rem; margin-top: 0.5rem; }
+
+.register .card form p a { text-decoration: none; color: blue; }
+
+.register .card p a { text-decoration: none !important; padding-left: 1rem; font-weight: 450; }
+
+.register .card .form-error { color: #ffd8d8; padding: 20px; font-size: 1rem; font-weight: 600; }
+
+/*# sourceMappingURL=register.css.map */

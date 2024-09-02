@@ -1,0 +1,29 @@
+.reset-password { width: 100%; padding: 10px; }
+
+.reset-password h2 { color: #01d4d4; }
+
+.reset-password p { color: orange; padding-top: 0.5rem; }
+
+.reset-password form { display: flex; background-color: #f0f9f9; padding: 20px; flex-direction: column; margin-top: 1rem; }
+
+.reset-password form input { padding: 10px; width: 89%; border: 1px solid #d7d7d7; }
+
+.reset-password form button { border: none; width: 50%; padding: 10px; margin: 10px; font-size: 1.1rem; font-weight: 600; color: grey; background-color: #7bdcff; }
+
+.password_reset_complete p, .password-reset-confirm p { color: orange; }
+
+.password_reset_complete form, .password-reset-confirm form { display: flex; background-color: #f0f9f9; padding: 20px; flex-direction: column; }
+
+.password_reset_complete form ul li, .password-reset-confirm form ul li { color: #a27973 !important; margin: 0.5rem; }
+
+.password_reset_complete form input, .password-reset-confirm form input { padding: 10px; width: 89%; border: 1px solid #d7d7d7; }
+
+.password_reset_complete form button, .password-reset-confirm form button { border: none; width: 50%; padding: 10px; margin: 10px; font-size: 1.1rem; font-weight: 600; color: grey; background-color: #7bdcff; }
+
+.password-reset-done { padding: 20px; }
+
+.password-reset-done h2 { color: #01d4d4; padding-bottom: 0.5rem; }
+
+.password-reset-done p { color: orange; }
+
+/*# sourceMappingURL=resetion.css.map */
