@@ -72,3 +72,6 @@ virtualenvwrapper-win==1.2.6
 Werkzeug==2.2.2
 whitenoise==6.3.0
 wrapt==1.12.1
+wheel
+setuptools
+cython
