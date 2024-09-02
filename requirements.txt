@@ -41,6 +41,7 @@ mccabe==0.6.1
 oauthlib==3.2.2
 pbr==5.4.5
 Pillow==9.4.0
+freetype-py==2.3.0
 psycopg2-binary==2.9.9
 pycparser==2.22
 pygame==1.9.6
