@@ -24,6 +24,7 @@ django-tinymce==3.5.0
 djangorestframework==3.14.0
 filelock==3.0.12
 gunicorn==20.1.0
+python-decouple==3.8
 idna==3.4
 isort==4.3.21
 Jinja2==3.1.2
