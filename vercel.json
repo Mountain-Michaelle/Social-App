@@ -4,6 +4,13 @@
         "src": "social_app/wsgi.py",
         "use": "@vercel/python",
         "config": {"maxLambdaSize": "15mb", "runtime": "python3.9", "buidCommand": "bash build.sh"}
+        },
+        {
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
         }
 ],
     "routes": [ 
