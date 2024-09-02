@@ -12,6 +12,7 @@ django-compressor==4.5.1
 django-extensions==3.2.3
 django-sass-processor==1.4.1
 idna==3.8
+libsass==0.23.0
 MarkupSafe==2.1.5
 oauthlib==3.2.2
 pillow==10.4.0
