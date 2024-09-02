@@ -103,7 +103,7 @@ DATABASES = {
     }
 }
 #else:
-DATABASES['default'] = dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config()
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
