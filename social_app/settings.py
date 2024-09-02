@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-46dd&*i7w$a)np+w1-4@v0(lfa!#j-0y!s-lktb4580s&r0n!+'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,16 +94,25 @@ WSGI_APPLICATION = 'social_app.wsgi.application'
 # }
 
 #if DEBUG:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'social_app',
+#         'USER': 'postgres',
+#         'PASSWORD': '41240075',
+#     }
+# }
+#else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'social_app',
-        'USER': 'postgres',
-        'PASSWORD': '41240075',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT')
     }
 }
-#else:
-# DATABASES['default'] = dj_database_url.config()
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
