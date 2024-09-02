@@ -209,7 +209,7 @@ STATICFILES_FINDERS = [
 
 
 SASS_PROCESSOR_INCLUDE_DIRS = [
-    os.path.join(BASE_DIR, 'static/Assets/scss'),
+    #oos.path.join(BASE_DIR, 'static/Assets/scss'),
     # os.path.join(PROJECT_PATH, 'node_modules'),
 ]
 
@@ -220,7 +220,7 @@ SASS_OUTPUT_STYLE = 'compact'
 SASS_PRECISION = 8
 
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
+    ('text/css', 'django_libsass.SassCompiler'),
 )
 
 INTERNAL_IPS = [
