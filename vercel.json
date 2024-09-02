@@ -6,6 +6,10 @@
         "config": {"maxLambdaSize": "15mb", "runtime": "python3.9", "buidCommand": "bash build.sh"}
         }
 ],
+
+"scripts": {
+    "build": "apt-get update && apt-get install -y libsdl1.2-dev libfreetype6-dev && pip install -r requirements.txt"
+  },
     "routes": [ 
         {
             "src": "/(.*)",
