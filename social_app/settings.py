@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', 'mysite.com', 'localhost', '127.0.0.1']
 
+
 # Application definition
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
@@ -206,10 +207,12 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 
+
 SASS_PROCESSOR_INCLUDE_DIRS = [
-    os.path.join(BASE_DIR, 'static/Assets/scss'),
+    #oos.path.join(BASE_DIR, 'static/Assets/scss'),
     # os.path.join(PROJECT_PATH, 'node_modules'),
 ]
+
 
 SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 
@@ -217,13 +220,12 @@ SASS_OUTPUT_STYLE = 'compact'
 SASS_PRECISION = 8
 
 COMPRESS_PRECOMPILERS = (
-    ('text/css', 'django_libsass.SassCompiler'),
+    ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
