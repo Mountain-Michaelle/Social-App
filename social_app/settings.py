@@ -190,7 +190,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[BASE_DIR/'static/']
 
-STATIC_ROOT = BASE_DIR /'staticfiles/'
+#STATIC_ROOT = BASE_DIR /'staticfiles/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -209,7 +209,7 @@ STATICFILES_FINDERS = [
 
 
 SASS_PROCESSOR_INCLUDE_DIRS = [
-    #oos.path.join(BASE_DIR, 'static/Assets/scss'),
+    os.path.join(BASE_DIR, 'static/Assets/scss'),
     # os.path.join(PROJECT_PATH, 'node_modules'),
 ]
 
