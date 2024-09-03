@@ -11,6 +11,7 @@ django-browser-reload==1.15.0
 django-compressor==4.5.1
 django-extensions==3.2.3
 django-libsass==0.9
+django-sass-processor==1.4.1
 idna==3.8
 MarkupSafe==2.1.5
 oauthlib==3.2.2
