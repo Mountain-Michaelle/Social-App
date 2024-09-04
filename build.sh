@@ -8,5 +8,5 @@ python3.9 -m pip install -r requirements.txt
 echo "Make migrations..."
 python3.9 manage.py makemigrations
 python3.9 manage.py migrate
-python3.9 manage.py collectstatic --noinput
-python3.9 manage.py compress --noinput
+python3.9 manage.py collectstatic --no-input
+python3.9 manage.py compress --no-input
