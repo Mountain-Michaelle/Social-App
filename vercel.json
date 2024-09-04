@@ -6,18 +6,18 @@
         "config": {
           "maxLambdaSize": "15mb",
           "runtime": "python3.12",
-          "buildCommand": "bash build.sh"
+          "buildCommand": "bash setup.sh"
         }
       }
     ],
     "routes": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
         "src": "/(.*)",
         "dest": "social_app/wsgi.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
       }
     ]
   }
