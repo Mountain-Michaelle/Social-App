@@ -1,24 +1,12 @@
 {
-    "version": 2,
-    "builds": [    
-    {
-        "src": "package.json",
-        "use": "@vercel/node",
-        "config": {
-          "nodeVersion": "18.x"
-        }
-      },
-
+    "builds": [
       {
         "src": "social_app/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-      },
-      {
-        "src": "build.sh",
-        "use": "@vercel/static-build",
         "config": {
-          "distDir": "staticfiles"
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.12",
+          "buildCommand": "bash build.sh"
         }
       }
     ],
@@ -33,3 +21,4 @@
       }
     ]
   }
+  
