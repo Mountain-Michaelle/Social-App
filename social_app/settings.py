@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', 'mysite.com', 'localhost', '127.0.0.1']
 
@@ -204,45 +204,50 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-SASS_PROCESSOR_INCLUDE_DIRS = [
-    os.path.join(BASE_DIR, 'static/Assets/scss'),
-    # os.path.join(PROJECT_PATH, 'node_modules'),
-]
+# SASS_PROCESSOR_INCLUDE_DIRS = [
+#     os.path.join(BASE_DIR, 'static/Assets/scss'),
+#     # os.path.join(PROJECT_PATH, 'node_modules'),
+# ]
 
 
-SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+# SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 
-# SASS_OUTPUT_STYLE = 'compact'
-SASS_PRECISION = 8
+# # SASS_OUTPUT_STYLE = 'compact'
+# SASS_PRECISION = 8
 
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
+# COMPRESS_PRECOMPILERS = (
+#     ('text/x-scss', 'django_libsass.SassCompiler'),
+# )
+
+
+# # New configurations
+# LIBSASS_OUTPUT_STYLE = 'compressed'
+
+
+# LIBSASS_INCLUDE_PATH = [
+#     os.path.join(BASE_DIR, 'static/Assets', 'staticfiles', 'static', 'Assets', 'scss'),
+#     # Add other paths as needed
+# ]
+
+# #compressor settings
+# COMPRESS_ENABLED = True  #not DEBUUG Enable compression only in production
+# COMPRESS_OFFLINE = True  # Enables offline compression
+# COMPRESS_ROOT = STATIC_ROOT
+
+# COMPRESS_OUTPUT_DIR = 'CACHE'
+
+# # CSS Compressor settings
+# COMPRESS_CSS_FILTERS = [
+#     'django_libsass.SassFilter',  # Compiles SCSS to CSS
+#     'compressor.filters.cssmin.CSSMinFilter',  # Minifies the CSS
+# ]
+
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# New configurations
-LIBSASS_OUTPUT_STYLE = 'compressed'
 
-LIBSASS_INCLUDE_PATH = [
-    os.path.join(BASE_DIR, 'static/Assets', 'staticfiles', 'static', 'Assets', 'scss'),
-    # Add other paths as needed
-]
-
-#compressor settings
-COMPRESS_ENABLED = not DEBUG  #not DEBUUG Enable compression only in production
-COMPRESS_OFFLINE = True  # Enables offline compression
-COMPRESS_ROOT = STATIC_ROOT
-
-COMPRESS_OUTPUT_DIR = 'CACHE'
-
-# CSS Compressor settings
-COMPRESS_CSS_FILTERS = [
-    'django_libsass.SassFilter',  # Compiles SCSS to CSS
-    'compressor.filters.cssmin.CSSMinFilter',  # Minifies the CSS
-]
 
 
 # Default primary key field type
@@ -252,22 +257,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'compressor': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}

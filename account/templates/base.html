@@ -1,18 +1,18 @@
 {% comment %} {% load account_templatetag %} {% endcomment %}
 {% load static %}
-{% load compress %}
-
+{% comment %} {% load compress %} {% endcomment %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% compress css %}
+    <link rel='stylesheet' type="text/css" href="{% static 'Assets/css/main.css' %}" />
+    {% comment %} {% compress css %}
     <link rel='stylesheet' type="text/x-scss" href="{% static 'Assets/scss/main.scss' %}" />
-    {% endcompress %}
+    {% endcompress %} {% endcomment %}
 
+    
     <title> Social Web {% block title %}==>{% endblock %}</title>
 
 </head>
