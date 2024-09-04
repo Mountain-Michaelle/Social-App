@@ -1,0 +1,81 @@
+
+@import 'responsive.scss';
+
+.edit{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    @include small{
+       
+    }
+
+    h2{
+        color: #01d4d4;
+    }
+
+    p{
+        padding: 10px;
+        color: orange;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: #f0f9f9;
+        padding: 10px;
+        width: 100%;
+
+
+        p{
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+
+            label{
+                color: grey;
+            }
+
+            input{
+                padding: 10px;
+                width: 80%;
+                border: none;
+                background-color: #d5d8d8;
+                outline: none;
+            }
+        }  
+        ul{
+            li{
+                color: #a27973 !important;
+                margin: 0.5rem;
+            }
+            }
+
+        button{
+            padding: 10px;
+            width: 100%;
+            background-color: #01d4d4;
+            border: none;
+            font-weight: 700;
+        }
+        
+    }
+}
+
+
+.change-done{
+
+    h2{
+        color: green;
+        margin: 1rem;
+        text-align: center;
+
+    }
+
+    p{
+        color: orange;
+        text-align: center;
+        margin: 0;
+    }
+}

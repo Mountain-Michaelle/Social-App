@@ -1,0 +1,97 @@
+@import 'responsive.scss';
+
+.navigation{
+    display: flex;
+    padding: 10px;
+    height: 50px;
+    background: white;
+    box-shadow: 4px -1px 20px #deefea;
+
+
+    .nav-left{
+        flex: 2;
+        height: 100%;
+        display: flex;
+        position: relative;
+
+        h2{
+            position: absolute;
+            bottom: 0;
+            color: #95b1b4 !important;
+        }
+
+       
+    }
+
+    .nav-right{
+        flex: 3;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15%;
+        position: relative;
+
+
+        span{
+            display: flex;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: #0b272a !important;
+
+            a{
+                color: inherit;
+                text-decoration: none !important;
+            }
+        }
+
+        .selected{
+            color: #5e888d !important;
+            position: relative;
+
+            a{
+                color: inherit;
+                text-decoration: none !important;
+            }
+
+            .underline{
+                height: 3px;
+                width: 100%;
+                bottom: 0;
+                background: #cff7ff;
+                position: absolute;
+            }
+        }
+    }
+
+
+    @include medium{
+        flex-direction: column;
+        height: 70px;
+
+
+        .nav-left{
+            flex:1;
+            transition: 0.5s all;
+
+            h2{
+                top: 0;
+            }
+        }
+
+        .nav-right{
+            flex: 1;
+            justify-content: space-between;
+            gap: 5%;
+
+            span{
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+}
