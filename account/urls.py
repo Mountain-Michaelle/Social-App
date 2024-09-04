@@ -23,6 +23,6 @@ urlpatterns = [
     # path('password-reset/complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
-    path('profile/<int:profile_id>  /', views.profile, name='profile'),
+    path('profile/<int:profile_id>/', views.profile, name='profile'),
     path('profile/edit/', views.edit, name='edit'),
 ]
