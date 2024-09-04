@@ -1,6 +1,5 @@
 {% comment %} {% load account_templatetag %} {% endcomment %}
 {% load static %}
-{% load sass_tags %}
 {% load compress %}
 
 
@@ -11,14 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% compress css %}
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/Navbar.scss' %}" type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/loginForm.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/dashboard.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/resetion.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/register.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/edit.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/profile.scss' %}"  type="text/css" />
-    <link rel='stylesheet' href="{% sass_src 'Assets/scss/create.scss' %}"  type="text/css" />
+    <link rel='stylesheet' href="{% static 'Assets/scss/main.scss' %}" />
     {% endcompress %%}
 
     <title> Social Web {% block title %}==>{% endblock %}</title>

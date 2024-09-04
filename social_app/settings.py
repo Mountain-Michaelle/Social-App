@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -190,9 +189,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[BASE_DIR/'static/']
 
-#STATIC_ROOT = BASE_DIR /'staticfiles/'
+STATIC_ROOT = BASE_DIR /'staticfiles/Assets/o'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = 'media/'
@@ -202,11 +201,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-     # other finders..
     'compressor.finders.CompressorFinder',
-    'sass_processor.finders.CssFinder',
 ]
-
 
 SASS_PROCESSOR_INCLUDE_DIRS = [
     os.path.join(BASE_DIR, 'static/Assets/scss'),
@@ -216,8 +212,8 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 
 SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 
-SASS_OUTPUT_STYLE = 'compact'
-SASS_PRECISION = 8
+# SASS_OUTPUT_STYLE = 'compact'
+# SASS_PRECISION = 8
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
@@ -226,6 +222,34 @@ COMPRESS_PRECOMPILERS = (
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# New configurations
+LIBSASS_OUTPUT_STYLE = 'compressed'
+
+LIBSASS_INCLUDE_PATH = [
+    os.path.join(BASE_DIR, 'static/Assets', 'staticfiles', 'static', 'Assets', 'scss'),
+    # Add other paths as needed
+]
+
+#compressor settings
+COMPRESS_ENABLED = True  #not DEBUUG Enable compression only in production
+COMPRESS_OFFLINE = True  # Enables offline compression
+COMPRESS_ROOT = STATIC_ROOT
+
+COMPRESS_OUTPUT_DIR = 'CACHE'
+
+# CSS Compressor settings
+COMPRESS_CSS_FILTERS = [
+    'django_libsass.SassFilter',  # Compiles SCSS to CSS
+    'compressor.filters.cssmin.CSSMinFilter',  # Minifies the CSS
+]
+
+# Store the compressed files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -233,3 +257,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'compressor': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
