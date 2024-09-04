@@ -1,19 +1,28 @@
 {
-    "builds" : [
-        {
+    "version": 2,
+    "builds": [
+      {
         "src": "social_app/wsgi.py",
         "use": "@vercel/python",
-        "config": {"maxLambdaSize": "15mb", "runtime": "python3.9", "buildCommand": "bash build.sh"}
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      },
+      {
+        "src": "build.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles/CACHE"
         }
-],
-    "routes": [ 
-        {
-            "src": "/(.*)",
-            "dest": "social_app/wsgi.py"
-        },
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        }
-    ]
-}
+      }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "social_app/wsgi.py"
+      }
+    ],
+    "outputDirectory": "staticfiles/CACHE"
+  }
