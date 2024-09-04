@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', 'mysite.com', 'localhost', '127.0.0.1']
 
@@ -213,7 +213,7 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 
 # SASS_OUTPUT_STYLE = 'compact'
-# SASS_PRECISION = 8
+SASS_PRECISION = 8
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
