@@ -1,10 +1,10 @@
 
 # Build the project
-if ! command -v pip &> /dev/null
-then
-    echo "pip could not be found. Installing pip..."
-    apt-get update && apt-get install -y python3-pip
-fi
+# Ensure pip is installed using ensurepip
+python3 -m ensurepip --upgrade
+
+# Upgrade pip and setuptools
+pip install --upgrade pip setuptools
 
 echo 'Building the project...'
 python3.9 -m pip install -r requirements.txt
