@@ -233,7 +233,7 @@ LIBSASS_INCLUDE_PATH = [
 
 #compressor settings
 COMPRESS_ENABLED = True  #not DEBUUG Enable compression only in production
-COMPRESS_OFFLINE = False  # Enables offline compression
+COMPRESS_OFFLINE = True  # Enables offline compression
 COMPRESS_ROOT = STATIC_ROOT
 
 COMPRESS_OUTPUT_DIR = 'CACHE'
