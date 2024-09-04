@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.vercel.app', 'mysite.com', 'localhost', '127.0.0.1']
 
@@ -189,7 +189,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[BASE_DIR/'static/']
 
-STATIC_ROOT = BASE_DIR /'staticfiles/Assets/o'
+STATIC_ROOT = BASE_DIR / 'staticfiles/Assets/o'
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -232,7 +232,7 @@ LIBSASS_INCLUDE_PATH = [
 ]
 
 #compressor settings
-COMPRESS_ENABLED = not DEBUG  #not DEBUUG Enable compression only in production
+COMPRESS_ENABLED = False  #not DEBUUG Enable compression only in production
 COMPRESS_OFFLINE = True  # Enables offline compression
 COMPRESS_ROOT = STATIC_ROOT
 
