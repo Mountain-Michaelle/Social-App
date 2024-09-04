@@ -232,7 +232,7 @@ LIBSASS_INCLUDE_PATH = [
 ]
 
 #compressor settings
-COMPRESS_ENABLED = False  #not DEBUUG Enable compression only in production
+COMPRESS_ENABLED = True  #not DEBUUG Enable compression only in production
 COMPRESS_OFFLINE = False  # Enables offline compression
 COMPRESS_ROOT = STATIC_ROOT
 
