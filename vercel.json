@@ -1,6 +1,14 @@
 {
     "version": 2,
-    "builds": [
+    "builds": [    
+    {
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": {
+          "nodeVersion": "18.x"
+        }
+      },
+
       {
         "src": "social_app/wsgi.py",
         "use": "@vercel/python",

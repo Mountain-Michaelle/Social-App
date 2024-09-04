@@ -31,6 +31,6 @@ social-auth-core==4.5.4
 sqlparse==0.5.1
 typing_extensions==4.12.2
 tzdata==2024.1
-urllib3==2.2.2
+urllib3==1.26.6
 Werkzeug==3.0.4
 whitenoise==6.7.0
