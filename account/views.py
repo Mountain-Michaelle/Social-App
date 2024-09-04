@@ -25,7 +25,11 @@ def register(request):
             )
         
             new_user.save()
+            if user.is_admin():
+                Profile(user=new_user)
+                
             Profile.objects.create(user=new_user)
+            
             return render(request, 'account/register_done.html', {'new_user': new_user})
     
     else:
